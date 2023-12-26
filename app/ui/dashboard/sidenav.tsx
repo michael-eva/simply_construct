@@ -72,7 +72,7 @@ const Sidebar: any = () => {
         const generateLink = () => {
             if (item.link) {
                 return item.link
-            } else return "#"
+            } else return null
         }
 
         return (
