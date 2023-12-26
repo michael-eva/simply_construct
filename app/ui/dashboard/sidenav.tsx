@@ -7,6 +7,7 @@ import { sidebarStructure } from "./structure";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 
 const Sidebar: any = () => {
@@ -19,6 +20,7 @@ const Sidebar: any = () => {
     const [openedMenu, setOpenedMenu] = useState<Record<string, any>>({});
     const [activeName, setActiveName] = useState("");
     const activeLink = usePathname();
+    console.log(activeLink);
 
     const listRef = useRef<Record<string, HTMLUListElement | null>>({});
 
@@ -69,17 +71,11 @@ const Sidebar: any = () => {
         }
         const classesActive = activeName === item.name ? "active" : "";
 
-        const generateLink = () => {
-            if (item.link) {
-                return (item.link)
-            } else return "#"
-        }
-        console.log(typeof (item.link))
 
         return (
             <li key={index}>
                 <Link
-                    href={generateLink()}
+                    href={item.link || "#"}
                     role="button"
                     id={item.id}
                     onClick={() => {

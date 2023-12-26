@@ -60,7 +60,7 @@ const sidebarStructure = [
         name: "settings",
         parent: true,
         // icon: "pusatunduhdata",
-        link: "/settings"
+        link: "/dashboard/settings"
     },
 ];
 
