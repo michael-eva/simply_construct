@@ -78,7 +78,7 @@ const Sidebar: any = () => {
         return (
             <li key={index}>
                 <Link
-                    href={generateLink()}
+                    href="/dashboard/walls"
                     role="button"
                     id={item.id}
                     onClick={() => {
