@@ -72,7 +72,7 @@ const Sidebar: any = () => {
         const linkGenerator = () => {
             if (item.child) {
                 return (
-                    <a href="#" role="button" id={item.id} onClick={() => {
+                    < div id={item.id} onClick={() => {
                         if ("child" in item) {
                             handleToggle(item.name);
                         } else if ("link" in item) {
@@ -109,7 +109,7 @@ const Sidebar: any = () => {
                                 />
                             </svg>
                         </div>
-                    </a>
+                    </div>
                 )
             } else if (item.link) {
                 return (
