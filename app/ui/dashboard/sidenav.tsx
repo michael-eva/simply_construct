@@ -69,104 +69,95 @@ const Sidebar: any = () => {
             setActiveName(item.name);
         }
         const classesActive = activeName === item.name ? "active" : "";
-        const linkGenerator = () => {
-            if (item.child) {
-                return (
-                    < div id={item.id} onClick={() => {
-                        if ("child" in item) {
-                            handleToggle(item.name);
-                        } else if ("link" in item) {
-                            handleNavigate(item.name);
-                        }
-                    }}
-                        className={[
-                            "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
-                            recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
-                            activeName === item.name || activeName.split(".")[0] === item.name
-                                ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"
-                                }`
-                                : `text-slate-500 ${item.parent && ""}`,
-                            "hover:bg-slate-300/20",
-                            classesActive
-                        ].join(" ")}
-                    >
-                        <div className="flex items-center gap-3">
-                            <div>
-                                {item.title}
-                            </div>
-                        </div>
-                        <div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                        </div>
-                    </div>
-                )
-            } else if (item.link) {
-                return (
-                    <Link
-                        href={item.link}
-                        id={item.id}
-                        className={[
-                            "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
-                            recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
-                            activeName === item.name || activeName.split(".")[0] === item.name
-                                ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"
-                                }`
-                                : `text-slate-500 ${item.parent && ""}`,
-                            "hover:bg-slate-300/20",
-                            classesActive
-                        ].join(" ")}
-                    >
-                        <div className="flex items-center gap-3">
-                            <div>
-                                {item.title}
-                            </div>
-                        </div>
-                    </Link>
-                )
-            }
-        }
+        // const linkGenerator = () => {
+        //     if (item.child) {
+        //         return (
+        //             < div id={item.id} onClick={() => {
+        //                 if ("child" in item) {
+        //                     handleToggle(item.name);
+        //                 } else if ("link" in item) {
+        //                     handleNavigate(item.name);
+        //                 }
+        //             }}
+        //                 className={[
+        //                     "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
+        //                     recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
+        //                     activeName === item.name || activeName.split(".")[0] === item.name
+        //                         ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"
+        //                         }`
+        //                         : `text-slate-500 ${item.parent && ""}`,
+        //                     "hover:bg-slate-300/20",
+        //                     classesActive
+        //                 ].join(" ")}
+        //             >
+        //                 <div className="flex items-center gap-3">
+        //                     <div>
+        //                         {item.title}
+        //                     </div>
+        //                 </div>
+        //                 <div>
+        //                     <svg
+        //                         xmlns="http://www.w3.org/2000/svg"
+        //                         className="h-5 w-5"
+        //                         viewBox="0 0 20 20"
+        //                         fill="currentColor"
+        //                     >
+        //                         <path
+        //                             fillRule="evenodd"
+        //                             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+        //                             clipRule="evenodd"
+        //                         />
+        //                     </svg>
+        //                 </div>
+        //             </div>
+        //         )
+        //     } else if (item.link) {
+        //         return (
+        //             <Link
+        //                 href={item.link}
+        //                 id={item.id}
+        //                 className={[
+        //                     "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
+        //                     recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
+        //                     activeName === item.name || activeName.split(".")[0] === item.name
+        //                         ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"
+        //                         }`
+        //                         : `text-slate-500 ${item.parent && ""}`,
+        //                     "hover:bg-slate-300/20",
+        //                     classesActive
+        //                 ].join(" ")}
+        //             >
+        //                 <div className="flex items-center gap-3">
+        //                     <div>
+        //                         {item.title}
+        //                     </div>
+        //                 </div>
+        //             </Link>
+        //         )
+        //     }
+        // }
 
         return (
             <li key={index}>
-                {/* <Link
-                    href={item.link || "#"}
-                    role="button"
-                    id={item.id}
-                    onClick={() => {
-                        if ("child" in item) {
+                {item.child ? (
+                    <div
+                        id={item.id}
+                        onClick={() => {
                             handleToggle(item.name);
-                        } else if ("link" in item) {
-                            handleNavigate(item.name);
-                        }
-                    }}
-                    className={[
-                        "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
-                        recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
-                        activeName === item.name || activeName.split(".")[0] === item.name
-                            ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"
-                            }`
-                            : `text-slate-500 ${item.parent && ""}`,
-                        "hover:bg-slate-300/20",
-                        classesActive
-                    ].join(" ")}
-                >
-                    <div className="flex items-center gap-3">
-                        <div>
-                            {item.title}
+                        }}
+                        className={clsx(
+                            "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
+                            recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
+                            activeName === item.name || activeName.split(".")[0] === item.name
+                                ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"}`
+                                : `text-slate-500 ${item.parent && ""}`,
+                            "hover:bg-slate-300/20",
+                            classesActive
+                        )}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div>{item.title}</div>
                         </div>
-                    </div>
-                    {"child" in item ? (
                         <div>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -181,12 +172,29 @@ const Sidebar: any = () => {
                                 />
                             </svg>
                         </div>
-                    ) : (
-                        false
-                    )}
-                </Link> */}
-                {linkGenerator()}
-                {"child" in item ? (
+                    </div>
+                ) : (
+                    <Link
+                        href={item.link}
+                        id={item.id}
+                        className={clsx(
+                            "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
+                            recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
+                            activeName === item.name || activeName.split(".")[0] === item.name
+                                ? `text-blue-600 font-semibold ${item.parent ? "bg-blue-200/20 " : "bg-transparent"}`
+                                : `text-slate-500 ${item.parent && ""}`,
+                            "hover:bg-slate-300/20",
+                            classesActive
+                        )}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div>{item.title}</div>
+                        </div>
+                    </Link>
+                )}
+
+                {/* Recursive rendering of child items */}
+                {item.child && (
                     <ul
                         ref={(el) => (listRef.current[item.name] = el)}
                         className="overflow-hidden duration-300 ease-in-out"
@@ -197,8 +205,6 @@ const Sidebar: any = () => {
                             generateMenu(value, idx, recursive + 1)
                         )}
                     </ul>
-                ) : (
-                    false
                 )}
             </li>
         );
