@@ -1,10 +1,11 @@
 'use client'
 
-import { FC, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { sidebarStructure } from "./structure";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const Sidebar: any = () => {
@@ -60,6 +61,7 @@ const Sidebar: any = () => {
     };
 
     const generateMenu = (item: any, index: number, recursive: number = 0) => {
+
 
         if (activeName === "" && activeLink.includes(item.link)) {
             setActiveName(item.name);
@@ -154,9 +156,14 @@ const Sidebar: any = () => {
                                 className="text-center flex flex-col items-center justify-center"
                             >
                                 <div
-                                    className="rounded-full border-4 border-white overflow-hidden  h-28 w-28"
+                                    className="rounded-full border-4 border-white overflow-hidden "
                                 >
-                                    <img src={profilePic} className="block" alt="" />
+                                    <Image
+                                        src={profilePic}
+                                        alt="profile pic"
+                                        height={80}
+                                        width={80}
+                                    />
                                 </div>
                                 <div
                                     className="text-base font-semibold text-slate-700 mt-3"
