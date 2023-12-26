@@ -6,6 +6,7 @@ import "simplebar-react/dist/simplebar.min.css";
 import { sidebarStructure } from "./structure";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 
 const Sidebar: any = () => {
@@ -17,7 +18,7 @@ const Sidebar: any = () => {
 
     const [openedMenu, setOpenedMenu] = useState<Record<string, any>>({});
     const [activeName, setActiveName] = useState("");
-    const activeLink = window.location.pathname;
+    const activeLink = usePathname();
 
     const listRef = useRef<Record<string, HTMLUListElement | null>>({});
 
