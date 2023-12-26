@@ -17,14 +17,14 @@ const sidebarStructure = [
             {
                 id: "slab",
                 title: "Slab",
-                name: "slab",
+                name: "project.slab",
                 link: "/dashboard/project/slab",
                 // icon: "dot"
             },
             {
                 id: "walls",
                 title: "Walls",
-                name: "walls",
+                name: "project.walls",
                 link: "/dashboard/project/walls",
                 // icon: "dot"
             },
@@ -40,14 +40,14 @@ const sidebarStructure = [
             {
                 id: "wallLib",
                 title: "Wall",
-                name: "wallLib",
+                name: "library.wallLib",
                 link: "/dashboard/library/walls",
                 // icon: "dot"
             },
             {
                 id: "slabLib",
                 title: "Slab",
-                name: "slabLib",
+                name: "library.slabLib",
                 link: "/dashboard/library/slab",
                 // icon: "dot"
             },

@@ -71,9 +71,10 @@ const Sidebar: any = () => {
 
         const generateLink = () => {
             if (item.link) {
-                return item.link
-            } else return null
+                return (item.link)
+            } else return "#"
         }
+        console.log(typeof (item.link))
 
         return (
             <li key={index}>
@@ -81,13 +82,13 @@ const Sidebar: any = () => {
                     href={generateLink()}
                     role="button"
                     id={item.id}
-                    // onClick={() => {
-                    //     if ("child" in item) {
-                    //         handleToggle(item.name);
-                    //     } else if ("link" in item) {
-                    //         handleNavigate(item.name);
-                    //     }
-                    // }}
+                    onClick={() => {
+                        if ("child" in item) {
+                            handleToggle(item.name);
+                        } else if ("link" in item) {
+                            handleNavigate(item.name);
+                        }
+                    }}
                     className={[
                         "group m-0 flex cursor-pointer rounded-lg items-center justify-between h-12 py-0 pr-3 mb-1 focus:outline-none",
                         recursive === 0 ? "pl-4" : recursive === 1 ? "pl-11" : "pl-16",
