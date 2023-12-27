@@ -1,1 +1,0 @@
-// Mock data will be stored here when fetching from the 'items' database

@@ -51,6 +51,13 @@ const sidebarStructure = [
                 link: "/dashboard/library/slab",
                 icon: "dot"
             },
+            {
+                id: "components",
+                title: "components",
+                name: "library.components",
+                link: "/dashboard/library/components",
+                icon: "dot"
+            },
         ]
     },
 
