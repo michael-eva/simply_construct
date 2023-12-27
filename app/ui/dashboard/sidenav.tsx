@@ -217,7 +217,7 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
 
     const [openedMenu, setOpenedMenu] = useState<Record<string, any>>({});
     const [activeName, setActiveName] = useState("");
-    const activeLink = usePathname;
+    const activeLink = usePathname();
 
     const listRef = useRef<Record<string, HTMLUListElement | null>>({});
 
