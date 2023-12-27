@@ -201,6 +201,7 @@ import { FC, useRef, useState } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { sidebarStructure } from "./structure";
+import Image from "next/image";
 
 interface SidebarProps {
     setExpand: (value: boolean) => void;
@@ -535,7 +536,12 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
                                             : "h-12 w-12"
                                         }`}
                                 >
-                                    <img src={profilePic} className="block" alt="" />
+                                    <Image
+                                        src={profilePic}
+                                        alt="profile pic"
+                                        height={80}
+                                        width={80}
+                                    />
                                 </div>
                                 <div
                                     className={`text-base font-semibold text-slate-700 mt-3 truncate duration-300 ${isExpand ? "" : isExpandOnHover ? "" : "w-0 h-0 opacity-0"
