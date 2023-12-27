@@ -472,7 +472,7 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
                         style={{ maxHeight: `${openedMenu[item.name]?.height || "0px"}` }}
                         key={item.name}
                     >
-                        {item.child.map((value, idx) => generateMenu(value, idx, recursive + 1))}
+                        {item.child.map((value: any, idx: number) => generateMenu(value, idx, recursive + 1))}
                     </ul>
                 )}
             </li>
