@@ -1,3 +1,3 @@
 export default function Page() {
-    return <p>Dashboard page</p>
+    return <p className=" border-2 h-full border-dotted flex justify-center text-2xl">Dashboard page</p>
 }

@@ -1,4 +1,4 @@
 export default function Page() {
-    return <p>Settings page</p>
+    return <p className=" border-2 h-full border-dotted flex justify-center text-2xl">Settings page</p>
 
 }
