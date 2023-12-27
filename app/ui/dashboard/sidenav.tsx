@@ -202,6 +202,7 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { sidebarStructure } from "./structure";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface SidebarProps {
     setExpand: (value: boolean) => void;
@@ -216,7 +217,7 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
 
     const [openedMenu, setOpenedMenu] = useState<Record<string, any>>({});
     const [activeName, setActiveName] = useState("");
-    const activeLink = window.location.pathname;
+    const activeLink = usePathname;
 
     const listRef = useRef<Record<string, HTMLUListElement | null>>({});
 
