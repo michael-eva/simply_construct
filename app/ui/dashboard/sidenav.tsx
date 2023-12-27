@@ -521,7 +521,7 @@ const Sidebar: FC<SidebarProps> = ({ setExpand }) => {
                 onMouseLeave={() => handleHoverExpand(false)}
                 className={`relative h-screen overflow-hidden`}
             >
-                <SimpleBar style={{ height: "100%" }} autoHide timeout={100}>
+                <SimpleBar style={{ height: "100%" }} autoHide>
                     <div className="text-slate-500">
                         <div className="my-8 flex flex-col items-center h-44 overflow-x-hidden">
                             <a
