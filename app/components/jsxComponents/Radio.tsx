@@ -11,8 +11,8 @@ export default function RadioComp({ fields, legend }: RadioType) {
         <fieldset className="flex max-w-md flex-col gap-4">
             <legend className="mb-4">{legend}</legend>
             {fields?.map(field => (
-                <div className="flex items-center gap-2">
-                    <Radio key={nanoid()} id={field} name="countries" value={field} defaultChecked />
+                <div key={nanoid()} className="flex items-center gap-2">
+                    <Radio id={field} name="countries" value={field} defaultChecked />
                     <Label htmlFor={field}>{field}</Label>
                 </div>
             ))}
