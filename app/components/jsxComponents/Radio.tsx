@@ -1,5 +1,6 @@
 
 import { Label, Radio } from 'flowbite-react';
+import { nanoid } from 'nanoid';
 type RadioType = {
     legend: string,
     fields: any
@@ -11,7 +12,7 @@ export default function RadioComp({ fields, legend }: RadioType) {
             <legend className="mb-4">{legend}</legend>
             {fields?.map(field => (
                 <div className="flex items-center gap-2">
-                    <Radio id={field} name="countries" value={field} defaultChecked />
+                    <Radio key={nanoid()} id={field} name="countries" value={field} defaultChecked />
                     <Label htmlFor={field}>{field}</Label>
                 </div>
             ))}

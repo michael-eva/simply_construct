@@ -1,4 +1,5 @@
 import { Label, Select } from 'flowbite-react';
+import { nanoid } from 'nanoid';
 
 type SelectTpe = {
     label: string,
@@ -13,7 +14,7 @@ export default function SelectComp({ label, children }: SelectTpe) {
             </div>
             <Select id="countries" required>
                 {children.map(item => (
-                    <option value="">{item}</option>
+                    <option key={nanoid()} value={item}>{item}</option>
                 ))}
             </Select>
         </div>
